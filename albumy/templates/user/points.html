@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/pagination.html' import render_pagination %}
+{% from 'macros.html' import point_card with context %}
+
+{% block title %}{{ user.name }}'s Points{% endblock %}
+
+{% block content %}
+    {% include 'user/_header.html' %}
+    <div class="row">
+        <div class="col-sm-8">
+            {% if points %}
+                {% for point in points %}
+                
+                    {{ point_card(point) }}
+                {% endfor %}
+            {% else %}
+                <div class="tip">
+                    <h3>No Points.</h3>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {% if follows|length != 1 %}
+        <div class="page-footer">
+            {{ render_pagination(pagination) }}
+        </div>
+    {% endif %}
+{% endblock %}

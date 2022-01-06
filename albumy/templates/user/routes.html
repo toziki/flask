@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/pagination.html' import render_pagination %}
+{% from 'macros.html' import route_card with context %}
+
+{% block title %}{{ user.name }}'s routes{% endblock %}
+
+{% block content %}
+    {% include 'user/_header.html' %}
+    <div class="row">
+        <div class="col-sm-8">
+            {% if routes %}
+                {% for route in routes %}
+                
+                    {{ route_card(route) }}
+                {% endfor %}
+            {% else %}
+                <div class="tip">
+                    <h3>No routes.</h3>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+{% endblock %}
