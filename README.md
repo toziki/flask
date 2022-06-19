@@ -1,8 +1,8 @@
 
 clone:
 ```
-$ git clone https://github.com/toziki/albumy.git
-$ cd albumy
+$ git clone https://github.com/toziki/flask.git
+$ cd flask
 ```
 create & activate virtual env then install dependency:
 
